@@ -1,11 +1,18 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, world!"
+    return "✅ PennyGems Stock Scanner is running on Render!"
 
-# Do NOT include app.run() for production
-# if __name__ == "__main__":
-#     app.run(debug=True)
+@app.route("/scan")
+def scan():
+    # Example placeholder for stock scan logic
+    results = [
+        {"ticker": "ABC", "signal": "BUY"},
+        {"ticker": "XYZ", "signal": "SELL"}
+    ]
+    return jsonify({"status": "success", "results": results})
+
+# Important: No app.run() — Gunicorn will handle running the server
