@@ -1,6 +1,7 @@
-yfinance
-pandas
-requests
-flask
-beautifulsoup4
-lxml
+Flask==2.3.3
+gunicorn==21.2.0
+yfinance==0.2.41
+pandas==2.1.1
+numpy==1.26.0
+requests==2.32.0
+beautifulsoup4==4.12.3
