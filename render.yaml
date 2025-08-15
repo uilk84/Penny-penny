@@ -1,18 +1,7 @@
-
 services:
   - type: web
-    name: pennygems-screener
+    name: superalgo-scanner
     env: python
+    buildCommand: pip install --no-cache-dir -r requirements.txt
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app --preload --bind 0.0.0.0:$PORT
-    autoDeploy: true
-    envVars:
-      - key: ENABLE_ALERTS
-        value: "1"
-      - key: TG_BOT_TOKEN
-        sync: false
-      - key: TG_CHAT_ID
-        sync: false
-      - key: ALERT_STATE_PATH
-        value: alert_state.json
